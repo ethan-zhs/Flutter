@@ -17,38 +17,49 @@ class NoteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('note_detail');
+        Navigator.of(context).pushNamed('/note_detail', arguments: noteItem);
       },
       child: Container(
         padding: EdgeInsets.fromLTRB(28, 20, 28, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(noteItem['title'],
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'Roboto',
-                    fontSize: 16)),
+            Text(
+              noteItem['title'],
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Roboto',
+                fontSize: 16,
+              ),
+            ),
             Padding(
-                padding: EdgeInsets.fromLTRB(0, 3, 10, 3),
-                child: Text(noteItem['subtitle'],
-                    style: TextStyle(
-                        color: Color(0xFF777777),
-                        fontFamily: 'Roboto',
-                        fontSize: 12))),
+              padding: EdgeInsets.fromLTRB(0, 3, 10, 3),
+              child: Text(
+                noteItem['subtitle'],
+                style: TextStyle(
+                  color: Color(0xFF777777),
+                  fontFamily: 'Roboto',
+                  fontSize: 12,
+                ),
+              ),
+            ),
             Container(
-                padding: EdgeInsets.fromLTRB(0, 3, 10, 3),
-                child: Row(children: [
-                  Text(getUpdateTime() + ' ',
-                      style: TextStyle(
-                          color: Color(0xFFBBBBBB),
-                          fontFamily: 'Roboto',
-                          fontSize: 12)),
-                  Icon(Icons.cached, color: Color(0xFFBBBBBB), size: 15)
-                ]))
+              padding: EdgeInsets.fromLTRB(0, 3, 10, 3),
+              child: Row(children: [
+                Text(
+                  getUpdateTime() + ' ',
+                  style: TextStyle(
+                    color: Color(0xFFBBBBBB),
+                    fontFamily: 'Roboto',
+                    fontSize: 12,
+                  ),
+                ),
+                Icon(Icons.cached, color: Color(0xFFBBBBBB), size: 15)
+              ]),
+            )
           ],
         ),
       ),

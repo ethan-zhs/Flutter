@@ -4,12 +4,13 @@ import 'pages/NoteList.dart';
 import 'pages/NoteDetail.dart';
 
 final routes = {
+  '/': (context) => NoteList(),
   '/note_list': (context) => NoteList(),
-  '/note_detail': (context, {arguments}) => NoteDetail(),
+  '/note_detail': (context, {arguments}) => NoteDetail(noteItem: arguments),
 };
 
 //固定写法
-onGenerateRoute(RouteSettings settings) {
+var onGenerateRoute = (RouteSettings settings) {
   // 统一处理
   final String name = settings.name;
   final Function pageContentBuilder = routes[name];
@@ -26,4 +27,4 @@ onGenerateRoute(RouteSettings settings) {
     }
   }
   return null;
-}
+};

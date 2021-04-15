@@ -86,19 +86,31 @@ class _NoteListState extends State<NoteList> {
                     ),
                     Spacer(),
                     Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
-                        child: Text(
-                          '选择',
-                          style: TextStyle(
-                              color: Color(0xFFF8D539),
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
-                        )),
-                    Icon(
-                      Icons.add,
-                      color: Color(0xFFF8D539),
-                      size: 30,
-                    )
+                      padding: EdgeInsets.fromLTRB(0, 0, 25, 0),
+                      child: Text(
+                        '选择',
+                        style: TextStyle(
+                            color: Color(0xFFF8D539),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 30,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushNamed('/note_detail', arguments: {"a": 1});
+                        },
+                        padding: EdgeInsets.all(0),
+                        // highlightColor: Colors.white,
+                        icon: Icon(
+                          Icons.add,
+                          color: Color(0xFFF8D539),
+                          size: 30,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
